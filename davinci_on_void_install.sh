@@ -6,7 +6,8 @@ xbps-install void-repo-nonfree xtools
 # update everything
 xbps-install -Su
 
-xbps-install vim-huge git fzf fd tmux lynx xorg alsa-utils \
+xbps-install vim-huge git fzf fd tmux bash-completion lynx \
+    xorg alsa-utils \
     base-devel libX11-devel libXft-devel libXinerama-devel \
     google-fonts-ttf \
     xkblayout-state \
