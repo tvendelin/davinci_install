@@ -14,7 +14,8 @@ sudo xbps-install -y vim-huge git fzf fd tmux bash-completion lynx \
     google-fonts-ttf \
     xkblayout-state \
 
-    # DaVinci Resolve dependencies
+# DaVinci Resolve dependencies
+sudo xbps-install -y \
     nvidia \
     nvidia-opencl \
     libopencv \
