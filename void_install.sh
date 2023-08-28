@@ -1,9 +1,9 @@
 #!/bin/bash
 
-sudo xbps-install -u xbps
+sudo xbps-install -y -Su xbps
 
 # Nvidia drivers come from here
-sudo xbps-install -y void-repo-nonfree xtools
+sudo xbps-install -y -Su void-repo-nonfree xtools
 
 # update everything
 sudo xbps-install -y -Su
