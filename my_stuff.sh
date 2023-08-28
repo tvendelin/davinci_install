@@ -12,14 +12,14 @@ sudo xbps-install -y \
 
 # My ALSA config, system-specific.
 # See https://docs.voidlinux.org/config/media/alsa.html
-sudo cat <<EOI >> /etc/alsa.conf
+sudo tee /etc/alsa.conf > /dev/null <<'EOI'
 defaults.ctl.card 1;
 defaults.pcm.card 1;
 EOI
 
 # Keyboard layout toggling for multilingual users
-sudo mkdir -p "/etc/X11/xorg.conf.d" && \
-cat <<'EOI' >> /etc/X11/xorg.conf.d/30-keyboard.conf
+sudo mkdir -p "/etc/X11/xorg.conf.d"
+sudo tee /etc/X11/xorg.conf.d/30-keyboard.conf > /dev/null <<EOI
 Section "InputClass"
 	Identifier "keyboard"
 	MatchIsKeyboard "on"
@@ -28,9 +28,9 @@ Section "InputClass"
 EndSection
 EOI
 
-git clone https://github.com/tvendelin/dotfiles.git
+git clone https://github.com/tvendelin/dotfiles.git $HOME/dotfiles
 for F in .bashrc .git .gitconfig .gitconfig-user .gitignore-global .vimrc; do
-    cp "$HOME/dotfiles//$F" $HOME/
+    cp "$HOME/dotfiles/$F" $HOME/
 done
 
 # feh key bindings (useful with fzf)

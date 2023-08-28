@@ -12,7 +12,7 @@ sudo xbps-install -y vim-huge git fzf fd tmux bash-completion lynx \
     xorg alsa-utils \
     base-devel libX11-devel libXft-devel libXinerama-devel \
     google-fonts-ttf \
-    xkblayout-state \
+    xkblayout-state
 
 # DaVinci Resolve dependencies
 sudo xbps-install -y \
