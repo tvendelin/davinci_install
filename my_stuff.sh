@@ -29,8 +29,8 @@ EndSection
 EOI
 
 git clone https://github.com/tvendelin/dotfiles.git
-for F in .bashrc,.git,.gitconfig,.gitconfig-user,.gitignore-global,.vimrc; do
-    cp "$HOME/dotfiles/gitconfig/$F" $HOME/
+for F in .bashrc .git .gitconfig .gitconfig-user .gitignore-global .vimrc; do
+    cp "$HOME/dotfiles//$F" $HOME/
 done
 
 # feh key bindings (useful with fzf)
