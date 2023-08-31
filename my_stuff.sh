@@ -3,7 +3,6 @@
 # My things, no relation to DaVinci installation.
 # Use as a template or ditch altogether.
 sudo xbps-install -y \
-    virtualbox-ose \
     transmission \
     cmake \
     python3-devel \
@@ -12,7 +11,7 @@ sudo xbps-install -y \
 
 # My ALSA config, system-specific.
 # See https://docs.voidlinux.org/config/media/alsa.html
-sudo tee /etc/alsa.conf > /dev/null <<'EOI'
+sudo tee /etc/asound.conf > /dev/null <<'EOI'
 defaults.ctl.card 1;
 defaults.pcm.card 1;
 EOI
