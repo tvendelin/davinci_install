@@ -12,7 +12,9 @@ sudo xbps-install -y vim-huge git fzf fd tmux bash-completion lynx \
     xorg alsa-utils \
     base-devel libX11-devel libXft-devel libXinerama-devel \
     google-fonts-ttf \
-    xkblayout-state
+    xkblayout-state \
+    gvfs gvfs-gphoto2 gvfs-mtp \
+    elogind
 
 # DaVinci Resolve dependencies
 sudo xbps-install -y \
@@ -26,10 +28,6 @@ sudo xbps-install -y \
     xcb-util-renderutil \
     libxkbcommon-x11 \
     glu
-#    qt-devel
-#    qt
-#    Qt
-    # libglvnd-devel
 
 # Install Suckless software,
 # customize later
@@ -46,6 +44,6 @@ cd $HOME
 
 cat <<EOI > $HOME/.xinitrc
 /usr/local/bin/slstatus &
-exec dwm
+exec dbus-run-session dwm
 EOI
 
