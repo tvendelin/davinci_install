@@ -8,13 +8,11 @@ sudo xbps-install -y -Su void-repo-nonfree xtools
 # update everything
 sudo xbps-install -y -Su
 
-sudo xbps-install -y vim-huge git fzf fd tmux bash-completion lynx \
+sudo xbps-install -y vim-huge git tmux bash-completion lynx \
     xorg alsa-utils \
     base-devel libX11-devel libXft-devel libXinerama-devel \
     google-fonts-ttf \
-    xkblayout-state \
-    gvfs gvfs-gphoto2 gvfs-mtp \
-    elogind
+    xkblayout-state 
 
 # DaVinci Resolve dependencies
 sudo xbps-install -y \
@@ -44,6 +42,5 @@ cd $HOME
 
 cat <<EOI > $HOME/.xinitrc
 /usr/local/bin/slstatus &
-exec dbus-run-session dwm
 EOI
 

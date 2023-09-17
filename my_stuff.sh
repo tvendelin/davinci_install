@@ -3,11 +3,14 @@
 # My things, no relation to DaVinci installation.
 # Use as a template or ditch altogether.
 sudo xbps-install -y \
+    fzf \
+    fd \
     transmission \
     cmake \
     python3-devel \
     fd \
-    feh
+    feh \
+    simple-mtpfs 
 
 # My ALSA config, system-specific.
 # See https://docs.voidlinux.org/config/media/alsa.html
@@ -39,3 +42,4 @@ zoom_in plus KP_Add equal
 zoom_out minus KP_Subtract
 quit Up Down Escape
 EOI
+
