@@ -41,6 +41,19 @@ done
 cd $HOME
 
 cat <<EOI > $HOME/.xinitrc
+xrdb -merge ~/.Xresources
 /usr/local/bin/slstatus &
+exec dwm
 EOI
 
+cat <<EOI > $HOME/.Xresources
+! For "normal" monitors, set to 96
+Xft.dpi: 192
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+EOI

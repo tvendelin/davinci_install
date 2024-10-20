@@ -10,7 +10,19 @@ sudo xbps-install -y \
     python3-devel \
     fd \
     feh \
-    simple-mtpfs 
+    simple-mtpfs \
+    fuse3
+
+# Fuse3
+mv /etc/fuse.conf /etc/orig.fuse.conf
+echo 'user_allow_other' | sudo tee -a /etc/fuse.conf
+
+# FZF key bindings
+ln -s /usr/share/fzf/completion.bash /etc/bash/bashrc.d/fzf_completion.sh
+ln -s /usr/share/fzf/completion.bash /etc/profile.d/fzf_completion.sh
+ln -s /usr/share/fzf/key-bindings.bash /etc/bash/bashrc.d/fzf_keybindings.sh
+ln -s /usr/share/fzf/key-bindings.bash /etc/profile.d/fzf_keybindings.sh
+
 
 # My ALSA config, system-specific.
 # See https://docs.voidlinux.org/config/media/alsa.html
@@ -30,7 +42,7 @@ Section "InputClass"
 EndSection
 EOI
 
-git clone https://github.com/tvendelin/dotfiles.git $HOME/dotfiles
+git clone https://github.com/tvendelin/dotfiles.git $HOME/dotfiles || true
 for F in .bashrc .git .gitconfig .gitconfig-user .gitignore-global .vimrc; do
     cp "$HOME/dotfiles/$F" $HOME/
 done
