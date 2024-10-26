@@ -3,15 +3,36 @@
 # My things, no relation to DaVinci installation.
 # Use as a template or ditch altogether.
 sudo xbps-install -y \
+    rxvt-unicode urxvt-perls  \
+    git \
+    bash-completion \
+    psmisc \
     fzf \
     fd \
-    transmission \
+    feh \
+
+    cups \
+    hplip-gui \
+
     cmake \
     python3-devel \
-    fd \
-    feh \
+
     simple-mtpfs \
-    fuse3
+    fuse3 \
+    gparted \
+    android-file-transfer \
+
+    gphoto2 \
+    v4l2loopback  \
+    screenkey  \
+    ffmpeg \
+    audacity  \
+
+    kodi \
+    mpv \
+    virtualbox-ose \
+    transmission \
+    firefox
 
 # Fuse3
 mv /etc/fuse.conf /etc/orig.fuse.conf
@@ -43,7 +64,7 @@ EndSection
 EOI
 
 git clone https://github.com/tvendelin/dotfiles.git $HOME/dotfiles || true
-for F in .bashrc .git .gitconfig .gitconfig-user .gitignore-global .vimrc; do
+for F in .bashrc .git .gitconfig .gitconfig-user .gitignore-global .vimrc .Xresources; do
     cp "$HOME/dotfiles/$F" $HOME/
 done
 
@@ -55,3 +76,31 @@ zoom_out minus KP_Subtract
 quit Up Down Escape
 EOI
 
+# Sony RX100M7 as a webcam
+echo v4l2loopback | sudo tee /etc/modules-load.d/v4l2loopback.conf >/dev/null
+sudo modprobe v4l2loopback
+
+sudo tee /usr/local/bin/camera > /dev/null <<EOI
+#!/bin/bash
+gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0
+EOI
+
+sudo chmod 0755 /usr/local/bin/camera 
+
+# Personal devices
+# To configure yours,
+# lsusb
+# lsusb -v -s <bus>:<device>
+# NB! vendor/product IDs without leading 0x
+
+sudo tee /usr/lib/udev/rules.d/98-my_devices.rules <<EOI
+# android 
+#
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="6860", GROUP="plugdev", MODE="0770", SYMLINK+="android%n"
+# Sony camera
+#
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0cae", GROUP="plugdev", MODE="0774", SYMLINK+="sony%n"
+# Zoom H5 recorder
+# 
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1686", ATTRS{idProduct}=="01c5", GROUP="plugdev", MODE="0770", SYMLINK+="zoomh5%n"
+EOI
