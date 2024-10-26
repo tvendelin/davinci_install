@@ -10,24 +10,24 @@ sudo xbps-install -y \
     fzf \
     fd \
     feh \
-
+\
     cups \
     hplip-gui \
-
+\
     cmake \
     python3-devel \
-
+\
     simple-mtpfs \
     fuse3 \
     gparted \
     android-file-transfer \
-
+\
     gphoto2 \
     v4l2loopback  \
     screenkey  \
     ffmpeg \
     audacity  \
-
+\
     kodi \
     mpv \
     virtualbox-ose \
