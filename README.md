@@ -18,8 +18,17 @@ sh davinci_resolv_install.sh
 
 Launch DaVinci Resolve from DWM by typing `<Ctrl>-P`, and typing `resolve` in the text box.
 
-The third script, `my_stuff.sh` is irrelevant to DaVinci Resolve installation, and partly is
-specific to my system. Feel free to peek, steal, modify, etc.
+### My Personal Setup
 
-Please note that the choice of CLI tools reflect my personal preferences, which may differ from
-yours.
+This is irrelevant to DaVinci Resolve installation, and partly is specific to my system. Please note
+that the choice of CLI tools reflect my personal preferences, which may differ from yours.
+
+```bash
+# Install and configure system-wide
+sudo ./my_stuff.sh
+
+# Clone and install dotfiles
+./dotfiles.sh
+```
+
+Feel free to peek, steal, modify, send pull requests, etc.
