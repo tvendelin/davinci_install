@@ -22,7 +22,7 @@ xbps-install -y \
     simple-mtpfs \
     fuse3 \
     gparted \
-    android-file-transfer \
+    android-file-transfer-linux \
     gphoto2 \
     v4l2loopback  \
     screenkey  \
