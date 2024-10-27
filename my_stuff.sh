@@ -7,10 +7,14 @@ fi;
 
 # My things, no relation to DaVinci installation.
 # Use as a template or ditch altogether.
+
+# Patch and re-install dwm
+cd dwm-6.5/
+patch < ../patches/dwm-tvendelin-6.5.diff 
+make clean install
+cd ..
+
 xbps-install -y \
-    rxvt-unicode urxvt-perls  \
-    git \
-    bash-completion \
     psmisc \
     fzf \
     fd \
