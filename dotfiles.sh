@@ -3,7 +3,7 @@
 DOTFILES_DIR="$HOME/dotfiles"
 
 git clone https://github.com/tvendelin/dotfiles.git $HOME/dotfiles || true
-for F in .bashrc .git .gitconfig .gitconfig-user .gitignore-global .vimrc .Xresources; do
+for F in .bashrc .gitconfig .gitconfig-user .gitignore-global .vimrc .Xresources; do
     cp "$DOTFILES_DIR/$F" $HOME/
 done
 

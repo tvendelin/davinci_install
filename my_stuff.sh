@@ -14,6 +14,8 @@ patch < ../patches/dwm-tvendelin-6.5.diff
 make clean install
 cd ..
 
+xbps-install -y -Su
+
 xbps-install -y \
     psmisc \
     fzf \
@@ -41,9 +43,6 @@ xbps-install -y \
 # Fuse3
 mv /etc/fuse.conf /etc/orig.fuse.conf
 echo 'user_allow_other' >> /etc/fuse.conf
-
-# Git prompt
-ln -s /usr/share/git/git-prompt.sh /etc/bash/bashrc.d/
 
 # FZF key bindings
 ln -s /usr/share/fzf/completion.bash /etc/bash/bashrc.d/fzf_completion.sh
@@ -90,7 +89,7 @@ EOI
 echo v4l2loopback > /etc/modules-load.d/v4l2loopback.conf 
 modprobe v4l2loopback
 
-cat  <<EOI > /local/bin/camera 
+cat  <<EOI > /usr/local/bin/camera 
 #!/bin/bash
 gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0
 EOI

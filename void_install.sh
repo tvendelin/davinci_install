@@ -42,6 +42,12 @@ cd dmenu-5.3
 sudo make clean install
 cd ..
 
+curl -O https://dl.suckless.org/st/st-0.9.2.tar.gz
+tar zxf st-0.9.2.tar.gz
+cd st-0.9.2
+sudo make clean install
+cd ..
+
 curl -O https://dl.suckless.org/dwm/dwm-6.5.tar.gz 
 tar zxf dwm-6.5.tar.gz 
 cd dwm-6.5/
@@ -61,16 +67,6 @@ Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
-
-! Minimal urxvt configuration
-URxvt*background: [90]#1E1E1E
-URxvt*depth: 32
-URxvt*foreground: #E6D4A3
-URxvt.cursorColor: #EE0000
-
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-EOI
 
 cat <<EOI > $HOME/.xinitrc
 xrdb -merge ~/.Xresources
