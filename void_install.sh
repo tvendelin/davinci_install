@@ -54,7 +54,7 @@ cd dwm-6.5/
 sudo make clean install
 cd ..
 
-# Minimal .Xresources, wrks for 32" monitor
+# Minimal .Xresources, works for 32" monitor
 # Easier to downscale than the opposite, with tiny text
 cat <<EOI > $HOME/.Xresources
 ! For "normal" monitors, set to 96
@@ -67,6 +67,7 @@ Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+EOI
 
 cat <<EOI > $HOME/.xinitrc
 xrdb -merge ~/.Xresources

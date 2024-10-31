@@ -10,6 +10,7 @@ fi;
 
 # Patch and re-install dwm
 cd dwm-6.5/
+rm config.h || true
 patch < ../patches/dwm-tvendelin-6.5.diff 
 make clean install
 cd ..
@@ -50,6 +51,7 @@ ln -s /usr/share/fzf/completion.bash /etc/profile.d/fzf_completion.sh
 ln -s /usr/share/fzf/key-bindings.bash /etc/bash/bashrc.d/fzf_keybindings.sh
 ln -s /usr/share/fzf/key-bindings.bash /etc/profile.d/fzf_keybindings.sh
 
+ln -s /usr/share/git/git-prompt.sh /etc/bash/bashrc.d/
 
 # My ALSA config, system-specific.
 # See https://docs.voidlinux.org/config/media/alsa.html
